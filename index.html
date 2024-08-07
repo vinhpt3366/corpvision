@@ -45,56 +45,66 @@
 <body>
     <!-- header -->
     <header id="site-header" class="fixed-top main-header">
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <div class="container">
-                <div class="navbar-brand-wrapper">
-                    <a class="navbar-brand" href="#">
-                        <span class="fa fa-align-right"></span>
-                            Corp Vision 
-                        <span class="logo">Vision to your Future</span>
-                    </a>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <div class="navbar-brand-wrapper">
+                        <a class="navbar-brand" href="#">
+                            <span class="fa fa-align-right"></span>
+                            Corp Vision
+                            <span class="logo">Vision to your Future</span>
+                        </a>
+                    </div>
+                    <div class="navbar-toggler-wrapper">
+                        <div class="navbar-buttons d-lg-none">
+                            <button class="btn btn-material btn-search"><i class="fas fa-search"></i></button>
+                            <button class="btn btn-material btn-mode" id="btn-mode"><i class="fas fa-moon"></i></button>
+                        </div>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon">
+                                <span class="fa fa-bars" id="navbar-icon"
+                                    style="color: white; font-size: 20px; line-height: 34px; font-weight: bold;"></span>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link active" href="#">HOME</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">ABOUT</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">SERVICES</a>
+                            </li>
+                            <li class="nav-item dropdown menu-item-has-children">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    PAGES
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">BLOG POSTS</a></li>
+                                    <li><a class="dropdown-item" href="#">404 PAGE</a></li>
+                                    <li><a class="dropdown-item" href="#">LANDING PAGE</a></li>
+                                    <li><a class="dropdown-item" href="#">ELEMENTS PAGE</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">CONTACT</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="navbar-buttons d-none d-lg-flex">
+                        <button class="btn btn-material btn-search"><i class="fas fa-search"></i></button>
+                        <button class="btn btn-material btn-mode" id="btn-mode" onclick="toggleDarkMode()"><i class="fas fa-moon"></i></button>
+                    </div>
                 </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- <a class="navbar-brand" href="#"><span>Corp</span> Vision</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button> -->
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">HOME</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">ABOUT</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">SERVICES</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                PAGES
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">BLOG POSTS</a></li>
-                                <li><a class="dropdown-item" href="#">404 PAGE</a></li>
-                                <li><a class="dropdown-item" href="#">LANDING PAGE</a></li>
-                                <li><a class="dropdown-item" href="#">ELEMENTS PAGE</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">CONTACT</a>
-                        </li>
-                    </ul>
-                    <button class="btn btn-search"><i class="fas fa-search"></i></button>
-                    <button class="btn btn-mode"><i class="fas fa-moon"></i></button>
-                </div>
-            </div>
-        </nav>
+            </nav>
+            
+        
+        </div>
     </header>
 
 
@@ -873,65 +883,9 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+    <script src="./js/index.js"></script>
+
     <script type="text/javascript">
-        $(document).ready(function () {
-            $(".owl-carousel").owlCarousel({
-                items: 1,
-                dots: true,
-                margin: 30,
-                stagePadding: 30,
-                smartSpeed: 450,
-            });
-        });
-
-        $(document).ready(function () {
-            $(".slider-list").slick({
-                dots: false,
-                arrows: true,
-                infinite: true,
-                // centerMode: true,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 2000,
-            });
-
-        });
-
-
-        $(window).on("scroll", function () {
-            var scroll = $(window).scrollTop();
-
-            if (scroll >= 80) {
-                $("#site-header").addClass("nav-fixed");
-            } else {
-                $("#site-header").removeClass("nav-fixed");
-            }
-        });
-
-        //Main navigation Active Class Add Remove
-        $(".navbar-toggler").on("click", function () {
-            $("header").toggleClass("active");
-        });
-        $(document).on("ready", function () {
-            if ($(window).width() > 991) {
-                $("header").removeClass("active");
-            }
-            $(window).on("resize", function () {
-                if ($(window).width() > 991) {
-                    $("header").removeClass("active");
-                }
-            });
-        });
-
-
-        new WOW().init();
-
-        AOS.init({
-            // attributeName: 'data-animation'
-        });
-
-
     </script>
 </body>
 
